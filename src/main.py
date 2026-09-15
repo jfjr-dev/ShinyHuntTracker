@@ -26,12 +26,20 @@ if compiledPath:
             assetsSavePath = os.path.join(
                 basePath, 'assets', 'CountSave.json')
             shutil.copy(assetsSavePath, savePath)
-        except:
+        except Exception:
             raise Exception(
                 "CountSave.json is missing or could not be copied from assets.")
 else:
-    savePath = "CountSave.json"
-    
+    savePath = "src/CountSave.json"
+
+    if not os.path.exists(savePath):
+        try:
+            assetsSavePath = os.path.join('src/assets', 'CountSave.json')
+            shutil.copy(assetsSavePath, savePath)
+        except Exception:
+            raise Exception(
+                "CountSave.json is missing or could not be copied from assets.")
+
 pokemonDictionary = {}
 if os.path.exists(savePath):
     try:

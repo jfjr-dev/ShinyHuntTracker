@@ -4,3 +4,4 @@ dist/
 .flutter/
 __pycache__/
 *.pyc
+src/CountSave.json
